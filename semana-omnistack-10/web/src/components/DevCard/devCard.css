@@ -1,0 +1,48 @@
+
+.dev-card{
+  background: #fff;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  padding: 20px;
+}
+
+.dev-card header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dev-card img{
+ width: 54px;
+ height: 54px;
+ border-radius: 50%;
+ margin-right: 10px;
+}
+
+.dev-card strong{
+  display: block;
+  font-size: 16px;
+  font-style: italic;
+  color: #333;
+}
+
+.dev-card span{
+  font-size: 13px;
+  color: #999;
+}
+
+.dev-card p{
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.dev-card a{
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dev-card a:hover{
+  color: #8e4dff;
+}
