@@ -1,20 +1,14 @@
-import express from 'express';
-import knex from './db/conexao';
+import express, { request, response } from 'express';
+import PontosController from './controllers/PontosController';
+import ItensController from './controllers/ItensController';
+
+const pontosController = new PontosController();
+const itensController = new ItensController();
 
 const routes = express.Router();
 
-routes.get('/itens', async (request, response) =>{
-    const itens = await knex('item').select('*');
+routes.get('/itens', itensController.listarItens);
 
-    const itensOrganizados = itens.map( item => {
-        return {
-            titulo: item.titulo,
-            img_url: `http://localhost:3333/uploads/${item.imagem}`,
-
-        }
-    });
-
-    return response.json(itensOrganizados);
- });
+ routes.post('/pontos', pontosController.criarItem);
 
 export default routes;
