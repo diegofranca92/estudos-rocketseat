@@ -9,6 +9,7 @@ const routes = express.Router();
 
 routes.get('/itens', itensController.listarItens);
 
- routes.post('/pontos', pontosController.criarItem);
+ routes.post('/ponto', pontosController.criarItem);
+ routes.get('/ponto/:id', pontosController.exibirItem);
 
 export default routes;
