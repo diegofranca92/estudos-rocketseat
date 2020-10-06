@@ -19,3 +19,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+semana-omnistack-10/mobile/.expo/settings.json
+semana-omnistack-10/mobile/.expo/packager-info.json
