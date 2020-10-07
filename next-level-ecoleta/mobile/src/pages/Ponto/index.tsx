@@ -2,9 +2,9 @@ import React from "react";
 import Constants from "expo-constants";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from "react-native";
 import SvgUri from "react-native-svg";
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 
 const Ponto = () => {
 
@@ -12,6 +12,9 @@ const Ponto = () => {
 
     function voltar() {
       navigation.goBack()
+    }
+    function irParaDetalhe() {
+      navigation.navigate('Detalhe')
     }
     return (
         <>
@@ -24,7 +27,28 @@ const Ponto = () => {
                 <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
 
                 <View style={styles.mapContainer}>
-                    <MapView style={styles.map} />
+                    <MapView style={styles.map} 
+                    initialRegion={{
+                      latitude: -12.9488864,
+                      longitude: -38.4323967,
+                      latitudeDelta: 0.014,
+                      longitudeDelta: 0.014
+                    }}
+                    >
+                      <Marker
+                      onPress={irParaDetalhe}
+                      style={styles.mapMarker}
+                      coordinate={{
+                        latitude: -12.9488864,
+                        longitude: -38.4323967
+                      }}
+                      >
+                        <View style={styles.mapMarkerContainer}>
+                          <Image style={styles.mapMarkerImage} source={{uri:'https://www.brasilcoleta.com.br/wp-content/uploads/2019/11/Cooperativa-de-Reciclagem-e-como-funciona_2.png'}}/>
+                          <Text style={styles.mapMarkerTitle}>Mercado</Text>
+                        </View>
+                      </Marker>
+                    </MapView>
                 </View>
             </View>
             <View style={styles.itemsContainer}>
@@ -34,15 +58,15 @@ const Ponto = () => {
                 contentContainerStyle={{paddingHorizontal: 20}}
                 >
                     <TouchableOpacity style={styles.item} onPress={() => {}} >
-                        <SvgUri width={42} height={42} uri="https://svgsilh.com/svg/42600.svg" />
+                        <SvgUri width={42} height={42} uri="http://svgsilh.com/svg/42600.svg" />
                         <Text style={styles.itemTitle}> SVG</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.item} onPress={() => {}} >
-                        <SvgUri width={42} height={42} uri="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" />
+                        <SvgUri width={42} height={42} uri="http://svgsilh.com/svg/42600.svg" />
                         <Text style={styles.itemTitle}> SVG</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.item} onPress={() => {}} >
-                        <SvgUri width={42} height={42} uri="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" />
+                        <SvgUri width={42} height={42} uri="http://svgsilh.com/svg/42600.svg" />
                         <Text style={styles.itemTitle}> SVG</Text>
                     </TouchableOpacity>
                 </ScrollView>
