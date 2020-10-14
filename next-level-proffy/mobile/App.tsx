@@ -17,13 +17,12 @@ export default function App() {
 
   if (!fontsLoaded) {
     return <AppLoading />;
+  } else{
+    return (
+      <>
+        <Landing />
+        <StatusBar style="light"/>
+      </>
+    );
   }
-
-
-  return (
-    <>
-      <Landing />
-      <StatusBar style="auto"/>
-    </>
-  );
 }
